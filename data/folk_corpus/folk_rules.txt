@@ -1,0 +1,31 @@
+EVIDENCE-GROUNDED CREATOR FOLK-THEORIES
+(distilled from 1191 belief-bearing snippets, 530 raw beliefs)
+
+1. [ai_flagging, ~5258 corpus mentions] Demonetization is triggered by AI systems that flag content based on keywords or sensitive topics.
+     e.g. "AI systems flag content with words like 'kill' or 'murder' for demonetization."
+2. [algorithm, ~1526 corpus mentions] Demonetization is influenced by YouTube's algorithm and content policies that prioritize advertiser-friendly language.
+     e.g. "Videos with profanity or dark themes are demonetized by the algorithm."
+3. [copyright, ~1044 corpus mentions] Demonetization can occur due to copyright claims, even without strikes or penalties.
+     e.g. "Using copyrighted music can lead to demonetization even with proper licensing."
+4. [trigger_words, ~943 corpus mentions] Demonetization is influenced by the use of certain words or phrases that trigger automated systems.
+     e.g. "Words like 'kill' or 'suicide' trigger demonetization."
+5. [reused_content, ~902 corpus mentions] Demonetization can be caused by reused content or content flagged as not original.
+     e.g. "Reusing content without edits leads to demonetization."
+6. [policy_changes, ~794 corpus mentions] Demonetization can occur due to changes in YouTube's content filters and advertiser policies.
+     e.g. "New policies on monetizing sensitive topics affect creators."
+7. [profanity, ~620 corpus mentions] Demonetization is caused by content that is flagged for containing profanity, even if it's not excessive.
+     e.g. "Videos with profanity are demonetized regardless of context."
+8. [advertiser_interest, ~608 corpus mentions] Demonetization is a result of YouTube's policies that prioritize advertiser interests over creator freedom.
+     e.g. "Content that could be seen as controversial is demonetized to avoid advertiser backlash."
+9. [system_failure, ~564 corpus mentions] Demonetization is a result of YouTube's automated systems failing to accurately categorize or flag content.
+     e.g. "Content is demonetized due to system errors or misclassification."
+10. [inauthentic_content, ~473 corpus mentions] Demonetization can be caused by content being flagged as 'inauthentic' or 'mass-produced' by YouTube's systems.
+     e.g. "Content deemed inauthentic is demonetized even with evidence of originality."
+11. [age_restrictions, ~296 corpus mentions] Demonetization is linked to content being flagged as age-restricted or inappropriate for minors.
+     e.g. "Videos with explicit content or adult themes are age-restricted and demonetized."
+12. [non_advertiser_friendly, ~257 corpus mentions] Demonetization is caused by content flagged as 'non-advertiser friendly' based on specific categories or keywords.
+     e.g. "Content in categories like 'horror' or 'violence' is flagged as non-advertiser friendly."
+13. [perceived_harm, ~144 corpus mentions] Demonetization is caused by content that is perceived as harmful, controversial, or inappropriate, even if it doesn't violate policies.
+     e.g. "Videos discussing sensitive topics like suicide are demonetized."
+14. [advertiser_friendly, ~79 corpus mentions] Demonetization is caused by content flagged as not advertiser-friendly due to specific keywords or themes.
+     e.g. "Videos with keywords like 'suicide' or 'death' are demonetized."

@@ -1,0 +1,13 @@
+# secrets — never commit your YouTube/Reddit cookies
+data/*cookies*.txt
+data/cookies.txt
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# generated outputs (keep the folder, not its contents)
+outputs/*
+!outputs/.gitkeep

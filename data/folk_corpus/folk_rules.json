@@ -1,0 +1,173 @@
+{
+  "n_snippets": 1191,
+  "n_raw_beliefs": 530,
+  "rules": [
+    {
+      "rule": "Demonetization is triggered by AI systems that flag content based on keywords or sensitive topics.",
+      "topic": "ai_flagging",
+      "keywords": [
+        "AI",
+        "algorithm",
+        "flagging",
+        "trigger words"
+      ],
+      "example": "AI systems flag content with words like 'kill' or 'murder' for demonetization.",
+      "support": 5258
+    },
+    {
+      "rule": "Demonetization is influenced by YouTube's algorithm and content policies that prioritize advertiser-friendly language.",
+      "topic": "algorithm",
+      "keywords": [
+        "algorithm",
+        "policy",
+        "monetization",
+        "advertiser"
+      ],
+      "example": "Videos with profanity or dark themes are demonetized by the algorithm.",
+      "support": 1526
+    },
+    {
+      "rule": "Demonetization can occur due to copyright claims, even without strikes or penalties.",
+      "topic": "copyright",
+      "keywords": [
+        "copyright",
+        "claim",
+        "strikes",
+        "music"
+      ],
+      "example": "Using copyrighted music can lead to demonetization even with proper licensing.",
+      "support": 1044
+    },
+    {
+      "rule": "Demonetization is influenced by the use of certain words or phrases that trigger automated systems.",
+      "topic": "trigger_words",
+      "keywords": [
+        "trigger",
+        "word",
+        "phrase",
+        "flag"
+      ],
+      "example": "Words like 'kill' or 'suicide' trigger demonetization.",
+      "support": 943
+    },
+    {
+      "rule": "Demonetization can be caused by reused content or content flagged as not original.",
+      "topic": "reused_content",
+      "keywords": [
+        "reused",
+        "original",
+        "clip",
+        "copy"
+      ],
+      "example": "Reusing content without edits leads to demonetization.",
+      "support": 902
+    },
+    {
+      "rule": "Demonetization can occur due to changes in YouTube's content filters and advertiser policies.",
+      "topic": "policy_changes",
+      "keywords": [
+        "policy",
+        "change",
+        "filter",
+        "update"
+      ],
+      "example": "New policies on monetizing sensitive topics affect creators.",
+      "support": 794
+    },
+    {
+      "rule": "Demonetization is caused by content that is flagged for containing profanity, even if it's not excessive.",
+      "topic": "profanity",
+      "keywords": [
+        "profanity",
+        "swear",
+        "language",
+        "flag"
+      ],
+      "example": "Videos with profanity are demonetized regardless of context.",
+      "support": 620
+    },
+    {
+      "rule": "Demonetization is a result of YouTube's policies that prioritize advertiser interests over creator freedom.",
+      "topic": "advertiser_interest",
+      "keywords": [
+        "advertiser",
+        "brand safety",
+        "profit",
+        "policy"
+      ],
+      "example": "Content that could be seen as controversial is demonetized to avoid advertiser backlash.",
+      "support": 608
+    },
+    {
+      "rule": "Demonetization is a result of YouTube's automated systems failing to accurately categorize or flag content.",
+      "topic": "system_failure",
+      "keywords": [
+        "system",
+        "failure",
+        "flag",
+        "categorize"
+      ],
+      "example": "Content is demonetized due to system errors or misclassification.",
+      "support": 564
+    },
+    {
+      "rule": "Demonetization can be caused by content being flagged as 'inauthentic' or 'mass-produced' by YouTube's systems.",
+      "topic": "inauthentic_content",
+      "keywords": [
+        "inauthentic",
+        "mass-produced",
+        "original",
+        "system"
+      ],
+      "example": "Content deemed inauthentic is demonetized even with evidence of originality.",
+      "support": 473
+    },
+    {
+      "rule": "Demonetization is linked to content being flagged as age-restricted or inappropriate for minors.",
+      "topic": "age_restrictions",
+      "keywords": [
+        "age restriction",
+        "minors",
+        "child",
+        "explicit"
+      ],
+      "example": "Videos with explicit content or adult themes are age-restricted and demonetized.",
+      "support": 296
+    },
+    {
+      "rule": "Demonetization is caused by content flagged as 'non-advertiser friendly' based on specific categories or keywords.",
+      "topic": "non_advertiser_friendly",
+      "keywords": [
+        "non-advertiser friendly",
+        "category",
+        "flagged",
+        "category"
+      ],
+      "example": "Content in categories like 'horror' or 'violence' is flagged as non-advertiser friendly.",
+      "support": 257
+    },
+    {
+      "rule": "Demonetization is caused by content that is perceived as harmful, controversial, or inappropriate, even if it doesn't violate policies.",
+      "topic": "perceived_harm",
+      "keywords": [
+        "harmful",
+        "controversial",
+        "inappropriate",
+        "perceived"
+      ],
+      "example": "Videos discussing sensitive topics like suicide are demonetized.",
+      "support": 144
+    },
+    {
+      "rule": "Demonetization is caused by content flagged as not advertiser-friendly due to specific keywords or themes.",
+      "topic": "advertiser_friendly",
+      "keywords": [
+        "advertiser-friendly",
+        "not advertiser friendly",
+        "ad suitability"
+      ],
+      "example": "Videos with keywords like 'suicide' or 'death' are demonetized.",
+      "support": 79
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+term,meaning,policy_area,source,reference,evidence,confidence,ambiguous,curation_decision,curation_reason
+accountant,sex worker,Adult content,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,YES,KEPT,documented/curated
+cheese pizza,child abuse material,Child safety,project_lexicon,repo:poc_self_censorship.py,,HIGH,YES,KEPT,documented/curated
+cheeto,donald trump,Political (advertiser-sensitivity),published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,YES,KEPT,documented/curated
+corn,porn,Adult content,published_glossary,https://later.com/social-media-glossary/algospeak/,,HIGH,YES,KEPT,documented/curated
+corn addiction,porn,Adult content,reddit_mined,https://www.reddit.com/r/NewTubers/comments/1p1plcf/do_you_actually_need_to_say_corn_and_unalive/,"and they go ""unalive"" or say ""corn addiction"" instead of porn for example. Does it actually harm y",MEDIUM,NO,KEPT,cited explicitly as algospeak for porn
+cornucopia,porn,Adult content,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+grape,rape,Adult content (sexual assault),published_glossary,https://jessieewesmont.substack.com/p/three-terrible-criticisms-of-algospeak,,HIGH,YES,KEPT,documented/curated
+grippy sock,psychiatric ward,Suicide & self-harm,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+kys,kill yourself,Suicide & self-harm,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+le dollar bean,lesbian,Identity / advertiser-sensitivity,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,NO,KEPT,documented/curated
+le$bian,lesbian,Identity / advertiser-sensitivity,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+leg booty,lgbtq,Identity / advertiser-sensitivity,published_glossary,https://www.merriam-webster.com/slang/algospeak,,HIGH,NO,KEPT,documented/curated
+mascara,sexual assault,Adult content (sexual assault),project_lexicon,repo:poc_self_censorship.py,,HIGH,YES,KEPT,documented/curated
+nip nops,nipples,Adult content,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,NO,KEPT,documented/curated
+ouid,weed / marijuana,Recreational drugs,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,NO,KEPT,documented/curated
+panini,pandemic,Controversial issues & sensitive events,published_glossary,https://dictionary.com/e/slang/algospeak/,,HIGH,YES,KEPT,documented/curated
+panorama,pandemic,Controversial issues & sensitive events,published_glossary,https://dictionary.com/e/slang/algospeak/,,HIGH,YES,KEPT,documented/curated
+panoramic,pandemic,Controversial issues & sensitive events,published_glossary,https://dictionary.com/e/slang/algospeak/,,HIGH,YES,KEPT,documented/curated
+pdf file,pedophile,Child safety,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+pew pew,gun,Firearms-related content,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,NO,KEPT,documented/curated
+sa,sexual assault,Adult content (sexual assault),published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,YES,KEPT,documented/curated
+saltines,white people (slur avoidance),Hateful and derogatory content,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,YES,KEPT,documented/curated
+seggs,sex,Adult content,published_glossary,https://www.merriam-webster.com/slang/algospeak,,HIGH,NO,KEPT,documented/curated
+self delete,suicide,Suicide & self-harm,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+self-deletion,suicide,Suicide & self-harm,reddit_mined,https://www.reddit.com/r/youtube/comments/184pynd/straight_up_bs_at_the_new_state_of_youtube/kayyht2/,"e YouTuber I follow uses ""self-deletion"" instead of suicide and r-word instead of rape to discuss pe",MEDIUM,NO,KEPT,documented algospeak for suicide
+sewer slide,suicide,Suicide & self-harm,published_glossary,https://jessieewesmont.substack.com/p/three-terrible-criticisms-of-algospeak,,HIGH,NO,KEPT,documented/curated
+silly moustache man,hitler,Hateful and derogatory content,reddit_mined,https://www.reddit.com/r/NewTubers/comments/1iqroug/are_there_words_or_images_that_you_cant_have_in_a/,ry channel? Do I have to say silly moustache man instead of Hitler? Do I have to show anoth,MEDIUM,NO,KEPT,documented coded reference to Hitler
+spicy accountant,sex worker,Adult content,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+spicy eggplant,vibrator,Adult content,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,NO,KEPT,documented/curated
+swimmers,vaccinated people,Controversial issues & sensitive events,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,YES,KEPT,documented/curated
+the rona,covid,Controversial issues & sensitive events,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+the vid,covid,Controversial issues & sensitive events,project_lexicon,repo:poc_self_censorship.py,,HIGH,NO,KEPT,documented/curated
+unalive,kill / suicide / die,Suicide & self-harm; Harmful or dangerous acts,published_glossary,https://www.merriam-webster.com/slang/algospeak,,HIGH,NO,KEPT,documented/curated
+unalived,killed,Suicide & self-harm; Harmful or dangerous acts,published_glossary,https://knowyourmeme.com/memes/algospeak-slang-replacement,,HIGH,NO,KEPT,documented/curated
+yahtzee,nazi,Hateful and derogatory content,published_glossary,https://jessieewesmont.substack.com/p/three-terrible-criticisms-of-algospeak,,HIGH,YES,KEPT,documented/curated
+a higher writing level,simplistic language,Other / unclear,reddit_mined,https://www.reddit.com/r/NewTubers/comments/1gcgi3e/why_are_kids_10yrs_old_interacting_with_my/,"ing, and I've let myself use a higher writing level instead of simplistic language. I've even starting bein",MEDIUM,,DROPPED,"phrase fragment, not algospeak"
+female,woman,Other / unclear,reddit_mined,https://www.reddit.com/r/youtube/comments/1u8z2d7/thoughts_on_this_channel/,"because he used the term ""female"" instead of ""woman"" although I think that n",MEDIUM,,DROPPED,"word-choice/misogyny discussion, not demonetisation algospeak"
+intriguing,just telling everyone w,Other / unclear,reddit_mined,https://www.reddit.com/r/NewTubers/comments/1oxajbu/thing_ive_learned_after_5000_subs/,"my thumbnails a bit more ""intriguing"" instead of just telling everyone what my video is about. Le",MEDIUM,,DROPPED,common word; extraction noise
+kill,unalive,Other / unclear,reddit_mined,https://www.reddit.com/r/youtube/comments/1snzl3r/blocking_ads_is_protected_by_law_in_the_united/,from polite society if I say kill instead of unalive? The internet used to be,MEDIUM,,DROPPED,plain word (inverted 'say kill instead of unalive')
+on certain videos,my channel as a whole,Other / unclear,reddit_mined,https://www.reddit.com/r/NewTubers/comments/1dfm4d2/youtube_appeal_denied_demonetized_2_days_after/,t was denied for only focusing on certain videos instead of my channel as a whole. I entirely disagree as,MEDIUM,,DROPPED,"phrase fragment, not algospeak"
+passed away irl or deat,die,Suicide & self-harm,reddit_mined,https://www.reddit.com/r/youtube/comments/1l41k29/literally_1984/mw6wu4z/,omething more “tame” (eg replacing die with passed away irl or death with eternal rest or st,MEDIUM,,DROPPED,indistinguishable from ordinary 'died' usage; 0/8 audited occurrences were self-censorship
+soft boxes,leds,Other / unclear,reddit_mined,https://www.reddit.com/r/NewTubers/comments/ale29s/my_video_making_process_from_concept_to_promoting/,wo lights on me. I would use soft boxes instead of LEDs... but my living room is,MEDIUM,,DROPPED,"lighting equipment, not algospeak"
+text,a 'link,Other / unclear,reddit_mined,https://www.reddit.com/r/SmallYTChannel/comments/11nqozm/smallytchannel_faq/,"accidentally posted as a 'text' instead of a 'link', thus making your thumbn",MEDIUM,,DROPPED,common word; extraction noise
+toys are used,animation,Other / unclear,reddit_mined,https://www.reddit.com/r/youtube/comments/17r49l0/100_million_views_but_youtube_has_demonetized_us/k8hl2rr/,ney off them... only because toys are used instead of animation. Just because you bought,MEDIUM,,DROPPED,"phrase fragment, not algospeak"
+unalived now,killed,Suicide & self-harm,reddit_mined,https://www.reddit.com/r/youtube/comments/1l41k29/literally_1984/mw5hw3l/,"now. I’ve just seen kids say unalived now instead of killed, and it really irritates",MEDIUM,,DROPPED,duplicate of published 'unalived'
+unalived' or 'pew pew,murdered and gun,Suicide & self-harm,reddit_mined,https://www.reddit.com/r/NewTubers/comments/1iqroug/are_there_words_or_images_that_you_cant_have_in_a/,tiktok trend where users say 'unalived' or 'pew pew' instead of murdered and gun. Are there some things y,MEDIUM,,DROPPED,malformed extraction; both terms already published
+visual editing,commentary,Other / unclear,reddit_mined,https://www.reddit.com/r/letsplay/comments/gxlpk6/youtube_channel_monetization/,"e videos I post. 3.Can i use visual editing instead of commentary, where I add an intro, t",MEDIUM,,DROPPED,"production term, not algospeak"
