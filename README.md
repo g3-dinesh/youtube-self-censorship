@@ -52,9 +52,11 @@ every analysis counts things the same way.
 
 - **Python 3.9+** (tested on 3.11)
 - `pip install -r requirements.txt` → `yt-dlp`, `numpy`, `matplotlib`
-- **For Stages 1–4 collection:** an exported YouTube `cookies.txt` placed at
-  `data/www.youtube.com_cookies.txt` (use the *"Get cookies.txt LOCALLY"* Chrome
-  extension while logged in). This stays on your machine and is git-ignored.
+- **Collection (Stages 1–3) needs no cookies** — the collectors use the YouTube
+  android + web player clients, which expose caption tracks without a login.
+- **Optional:** the ad checker (Stage 4) and metadata scraper (Stage 2) can use an
+  exported `cookies.txt` at `data/www.youtube.com_cookies.txt` to reduce
+  throttling, but it is not required. It stays on your machine and is git-ignored.
 - **For Stages 6–7 (the judges) only:** an [Ollama](https://ollama.com) server with
   `qwen3:8b` and `nomic-embed-text` pulled. In this project it runs on a university
   GPU server; point the scripts at it with `--host` or the `OLLAMA_HOST` env var.
