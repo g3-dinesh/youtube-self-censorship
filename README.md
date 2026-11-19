@@ -99,6 +99,15 @@ python src/01_collect_channel_transcripts.py --channels data/sample_channels.csv
 #   --cap         max videos sampled per channel, spread across its history
 ```
 
+**Stage 1 (server) — same collection on a remote GPU server (no cookies)**
+```bash
+# channels JSON is a list of {channel,category,url}; runs detached in tmux
+CAP=150 python src/01b_collect_channel_transcripts_server.py \
+       data/sample_channels_server.json seen_ids.txt > out.jsonl
+#   env CAP     videos per channel
+#   arg 2       optional file of already-collected ids to skip (additive re-runs)
+```
+
 **Stage 2 — engagement metadata / ad presence**
 ```bash
 python src/02_scrape_video_metadata.py --index outputs/video_index.csv --comments 20
@@ -139,6 +148,7 @@ python src/09_timeline_analysis.py --category true-crime --min-n 5
 | # | File | Input | Output |
 |---|------|-------|--------|
 | 1 | `01_collect_channel_transcripts.py` | `channels.csv` + start year | `transcripts.jsonl`, `video_index.csv` |
+| 1b | `01b_collect_channel_transcripts_server.py` | channels JSON + optional seen-ids | `transcripts.jsonl` (server variant: no cookies, android client, category tags) |
 | 2 | `02_scrape_video_metadata.py` | `video_index.csv` | `video_metadata.csv` (views/likes/tags…) |
 | 3 | `03_fetch_single_video.py` | one video id | `single_<id>.json` |
 | 4 | `04_ad_checker.py` | video ids | `ad_observations.csv` (ad_config 0/1) |
