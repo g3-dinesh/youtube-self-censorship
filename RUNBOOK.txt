@@ -1,0 +1,163 @@
+================================================================================
+ RUNBOOK  —  Investigating YouTube Self-Censorship
+ Step-by-step, start to finish. Copy–paste each block.
+ Tags:  [OFFLINE] = no internet/GPU   [NET] = needs internet   [OLLAMA] = needs the LLM
+================================================================================
+
+--------------------------------------------------------------------------------
+ STEP 0.  WHAT YOU NEED (install once)
+--------------------------------------------------------------------------------
+ 1. Python 3.9+        -> https://www.python.org/downloads/  (tick "Add to PATH")
+ 2. Git                -> https://git-scm.com/downloads
+ 3. Ollama (the LLM)   -> https://ollama.com/download   (only for the judge steps)
+
+ Check they are installed (open a terminal / PowerShell):
+     python --version
+     git --version
+     ollama --version
+
+
+--------------------------------------------------------------------------------
+ STEP 1.  MAKE A FOLDER AND CLONE THE REPO            [NET]
+--------------------------------------------------------------------------------
+     cd Desktop
+     mkdir selfcensor-review
+     cd selfcensor-review
+     git clone https://github.com/g3-dinesh/youtube-self-censorship.git
+     cd youtube-self-censorship
+
+
+--------------------------------------------------------------------------------
+ STEP 2.  INSTALL THE PYTHON PACKAGES                 [NET]
+--------------------------------------------------------------------------------
+     pip install -r requirements.txt
+
+ (installs yt-dlp, numpy, matplotlib, scipy, scikit-learn)
+
+
+--------------------------------------------------------------------------------
+ STEP 3.  REPRODUCE THE HEADLINE RESULTS — nothing else needed   [OFFLINE]
+--------------------------------------------------------------------------------
+ The repo ships the dataset + pre-computed judge output, so these run instantly
+ and print the project's main numbers. Each also writes a .csv + .png to outputs/.
+
+     python src/08_policy_avoidance.py          # 76% folk vs 17% policy (misdirection)
+     python src/10_counterfactual_experiment.py # algospeak backfires; disclaimer helps
+     python src/05_self_censorship_scan.py      # masking rate + "leaky mask" test
+     python src/09_timeline_analysis.py         # self-censorship over time
+
+ Expect to see, e.g.:
+     A_policy_flags_demonetise_on_monetised_pct   16.8
+     B_folk_flags_demonetise_on_monetised_pct     76.2
+
+
+--------------------------------------------------------------------------------
+ STEP 4.  LIVE DATA COLLECTION DEMO (a couple of videos)        [NET]
+--------------------------------------------------------------------------------
+ Pull transcript + metadata for 1–2 videos straight from YouTube (no login):
+
+     python src/03_fetch_single_video.py dQw4w9WgXcQ
+     python src/03_fetch_single_video.py <ANY_OTHER_VIDEO_ID>
+
+ Each saves outputs/single_<id>.json (title, channel, views, transcript).
+
+ Scrape a few videos of your own channels + engagement metadata (optional):
+     python src/01_collect_channel_transcripts.py --channels data/sample_channels.csv --since-year 2023 --cap 2
+     python src/02_scrape_video_metadata.py --index outputs/video_index.csv --comments 10
+
+
+--------------------------------------------------------------------------------
+ STEP 5.  SCRAPE A FEW REDDIT POSTS (folk-theory corpus demo)   [NET]
+--------------------------------------------------------------------------------
+ Cookie-free, no Reddit login (uses the Arctic Shift archive). Grabs ~10 posts:
+
+     python src/followups/collect_reddit_demo.py --limit 10
+
+ Saves outputs/followups/reddit_demo_posts.jsonl and prints a few titles.
+ (The full folk corpus the project uses is already in data/folk_corpus/.)
+
+
+--------------------------------------------------------------------------------
+ STEP 6.  START OLLAMA AND PULL THE MODELS            [OLLAMA, NET once]
+--------------------------------------------------------------------------------
+ Ollama usually runs in the background after install. If not, open a SEPARATE
+ terminal and run:
+     ollama serve
+
+ Then, in your main terminal, download the two models (once, ~6 GB):
+     ollama pull qwen3:8b
+     ollama pull nomic-embed-text
+
+ Tell the scripts where Ollama is (default shown):
+     PowerShell:   $env:OLLAMA_HOST = "http://localhost:11434"
+     Git Bash:     export OLLAMA_HOST=http://localhost:11434
+
+
+--------------------------------------------------------------------------------
+ STEP 7.  RUN THE TWO JUDGES ON A FEW VIDEOS          [OLLAMA]
+--------------------------------------------------------------------------------
+ System A = official written policy. System B = creator folk belief.
+ --limit 10 keeps it short; drop it to judge the whole label set.
+
+     python src/06_system_a_judge.py --from-csv data/ground_truth_labels.csv --limit 10
+     python src/07_system_b_judge.py --from-csv data/ground_truth_labels.csv --limit 10
+
+ Judge a single video:
+     python src/06_system_a_judge.py --video-id dQw4w9WgXcQ
+
+
+================================================================================
+ STEP 8.  THE FOLLOW-UP EXPERIMENTS  (src/followups/)
+================================================================================
+
+ 8a.  BUILD THE COMBINED CORPUS (needed by the corpus-level scripts)  [OFFLINE]
+      python src/followups/build_master_corpus.py
+      -> data/master_transcripts.jsonl  (3,617 videos / 65 channels)
+
+ 8b.  TALK-vs-WALK  (creators know the policy but over-fear it)        [OFFLINE]
+      python src/followups/agg_advice_rules.py        # #1  12.5% folk alignment
+      python src/followups/agg_rant_cause.py          # #2  77% blame real policy
+      python src/followups/build_creator_talkwalk.py  # #1b per-creator talk vs masking
+      python src/followups/exp1_advice_lexical.py     # #1  keyword cross-check
+      python src/followups/exp3_podcast_delta.py      # #3  podcast vs main register
+
+ 8c.  WHAT SELF-CENSORSHIP LOOKS LIKE / WHETHER IT WORKS             [OFFLINE]
+      python src/followups/cs_leaky_proximity.py      # leaky mask: plain word ~300 words away
+      python src/followups/per_creator_masking.py     # per-creator masking rate
+
+ 8d.  MEASUREMENT VALIDITY                                            [OFFLINE]
+      python src/followups/cs_detector_compare.py     # #4 detector precision vs recall
+      python src/followups/cs_audience_controls.py    # #5 audience mirroring, OR 1.50 [1.06,2.37]
+
+ 8e.  HUMAN-VALIDATION INSTRUMENT (#2)                                [OFFLINE]
+      python src/followups/build_annotation_set.py    # builds data/annotation/ (200-video sample)
+      python src/followups/score_annotation.py        # kappa + human-vs-A/B (after 2 people label it)
+
+ 8f.  (OPTIONAL) RE-RUN THE LLM JUDGEMENTS behind 8b                  [OLLAMA]
+      The results in 8b read pre-computed data/out1.jsonl + data/out2.jsonl.
+      To regenerate them yourself (needs Ollama from Step 6):
+      python src/followups/exp1_advice_rules.py data/metadiscourse.jsonl data/out1.jsonl
+      python src/followups/exp2_rant_cause.py  data/metadiscourse.jsonl data/out2.jsonl
+
+
+================================================================================
+ WHERE RESULTS GO
+================================================================================
+ outputs/            CSVs + PNG charts from the core pipeline (Steps 3–9)
+ outputs/followups/  CSVs/TXT from the follow-up experiments (Step 8)
+ data/annotation/    the human-validation sample + guide (Step 8e)
+ docs/RESULTS.md     the full written results with methods and caveats
+
+
+================================================================================
+ QUICK TROUBLESHOOTING
+================================================================================
+ * "ModuleNotFoundError"      -> re-run:  pip install -r requirements.txt
+ * Ollama step hangs/refused  -> make sure "ollama serve" is running and the
+                                 models are pulled (Step 6).
+ * yt-dlp / network errors    -> the Step 3 + Step 8 OFFLINE commands do NOT need
+                                 internet; use those if the venue Wi-Fi is flaky.
+ * Reddit returns few posts   -> the archive rate-limits; just re-run Step 5, or
+                                 skip it (data/folk_corpus/ is already included).
+ * Run every command from the repo root (the youtube-self-censorship folder).
+================================================================================
