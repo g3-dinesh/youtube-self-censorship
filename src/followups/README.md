@@ -8,11 +8,12 @@ the main pipeline does. Generated result files are written to
 [`docs/RESULTS.md`](../../docs/RESULTS.md).
 
 > **Corpus note.** The corpus-level scripts run on `data/master_transcripts.jsonl`,
-> rebuilt locally by `build_master_corpus.py` from the data bundled in this repo
-> (a subset of the full research corpus). Exact magnitudes therefore differ from
-> the thesis headline figures, which used the full corpus; the **Talk-vs-Walk**
-> results reproduce exactly because they read the committed LLM outputs
-> (`data/out1.jsonl`, `out2.jsonl`, `out_ctalk.jsonl`).
+> rebuilt locally by `build_master_corpus.py` from the full bundled corpus
+> (`euph_transcripts.jsonl` + `dataset/`, **3,617 videos / 65 channels**). The
+> numbers therefore reproduce the figures in `docs/RESULTS.md` exactly — e.g.
+> detector 375 lexicon flags / 181 benign-prone, audience OR 1.50 [1.06, 2.37].
+> The master file itself is regenerated rather than committed (it duplicates data
+> already in the repo).
 
 ## Setup
 

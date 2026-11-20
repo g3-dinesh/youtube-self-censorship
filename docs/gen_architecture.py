@@ -8,9 +8,10 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BLUE, ORANGE, GREEN, VERM, GREY, INK = "#0072B2", "#E69F00", "#009E73", "#D55E00", "#eef1f4", "#1a1a1a"
+PURPLE = "#6a51a3"
 
-fig, ax = plt.subplots(figsize=(13, 8.5)); ax.axis("off")
-ax.set_xlim(0, 13); ax.set_ylim(0, 9)
+fig, ax = plt.subplots(figsize=(13, 10.6)); ax.axis("off")
+ax.set_xlim(0, 13); ax.set_ylim(-2.3, 9)
 
 
 def box(x, y, w, h, text, fc, fs=8.5, tc="white"):
@@ -77,9 +78,17 @@ arrow(8.0, 4.75, 5.0, 1.45)     # signals -> timeline
 arrow(3.2, 0.97, 3.6, 0.97); arrow(6.3, 0.97, 6.7, 0.97); arrow(9.4, 0.97, 9.9, 0.97)
 
 # shared util note
-ax.text(6.5, 0.05, "common.py  —  shared masking detector, lexicon, Wilson CIs, dataset loader  |  "
+ax.text(6.5, 0.08, "common.py  —  shared masking detector, lexicon, Wilson CIs, dataset loader  |  "
         "backend: policy_rag · monetisation_judge · poc_* (RAG + Ollama)",
         ha="center", fontsize=7.5, color="#555", style="italic")
+
+# stage 5 — follow-up experiments (supervisor review)
+band(0.2, -2.15, 12.6, 1.95, "STAGE 5  ·  FOLLOW-UP EXPERIMENTS (supervisor review)  —  src/followups/", PURPLE)
+box(0.5, -1.95, 3.7, 1.0, "Talk-vs-Walk\nexp1/exp2 judges · agg_*\nbuild_creator_talkwalk", PURPLE, fs=7)
+box(4.5, -1.95, 3.7, 1.0, "What it looks like / works\nleaky_proximity · podcast_delta\nper_creator_masking", PURPLE, fs=7)
+box(8.5, -1.95, 4.0, 1.0, "Measurement validity\ndetector_compare · audience_controls\nbuild/score_annotation", PURPLE, fs=7)
+arrow(11.0, 4.75, 2.3, -0.95)     # signals/corpus -> followups
+arrow(6.0, 2.65, 10.5, -0.95)     # judges -> followups (validity)
 
 ax.set_title("YouTube Self-Censorship — pipeline architecture", fontsize=14, weight="bold", y=1.0)
 fig.tight_layout()

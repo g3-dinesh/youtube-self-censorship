@@ -212,8 +212,8 @@ amrita-review/
 │       ├── README.md
 │       └── exp*/scrape*/cs_*/agg_*/build_*  (+ casestudy_common.py shim)
 ├── data/
-│   ├── dataset/<creator>/*.json  # sample transcript corpus (538 videos)
-│   ├── euph_transcripts.jsonl    # dated transcripts (timeline)
+│   ├── dataset/<creator>/*.json  # transcript corpus (2,244 videos, with comments)
+│   ├── euph_transcripts.jsonl    # euphemism-genre + dated transcripts (timeline)
 │   ├── policy_corpus/            # System A knowledge (YouTube guidelines + index)
 │   ├── folk_corpus/              # System B knowledge (creator folk rules)
 │   ├── ground_truth_labels.csv   # creator-confirmed monetised/demonetised labels
