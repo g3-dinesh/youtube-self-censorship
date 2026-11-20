@@ -5,3 +5,7 @@ matplotlib>=3.7       # figures (stages 5, 8, 9, 10)
 # ad_checker (stage 4) uses only the Python standard library.
 # System A / System B judges (stages 6-7) also need an Ollama server running
 # qwen3:8b + nomic-embed-text; see README "System A / System B".
+
+# --- follow-up experiments (src/followups/) ---
+scipy>=1.10           # Wilcoxon test + stats for the audience-controls analysis
+scikit-learn>=1.3     # creator fixed-effects logit + Cohen's kappa (audience, annotation)

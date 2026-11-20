@@ -11,3 +11,5 @@ venv/
 # generated outputs (keep the folder, not its contents)
 outputs/*
 !outputs/.gitkeep
+data/master_transcripts.jsonl
+outputs/followups/

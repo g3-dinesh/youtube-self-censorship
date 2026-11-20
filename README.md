@@ -163,6 +163,35 @@ python src/09_timeline_analysis.py --category true-crime --min-n 5
 | — | `common.py` | — | shared detector, lexicon, Wilson CIs, loader |
 | — | `policy_rag.py`, `monetisation_judge.py`, `poc_*.py` | — | RAG + Ollama backend for the judges |
 
+See **[`src/followups/`](src/followups/README.md)** for the extension experiments
+added in supervisor review (Talk-vs-Walk, leaky-mask proximity, audience controls,
+detector precision/recall, and the human-validation instrument).
+
+---
+
+## Headline results
+
+Full write-up with methods, confidence intervals and caveats in
+**[`docs/RESULTS.md`](docs/RESULTS.md)**.
+
+- **The perception gap (3.9×).** On 1,000 videos, the folk-theory judge expects
+  **75.6%** [72.8–78.2] to be demonetised vs **19.2%** [16.9–21.8] under the
+  written policy — CIs disjoint. On the **601 videos literally serving ads**
+  (proven monetised), folk belief still flags **76%** vs policy's **17%**.
+- **Talk vs Walk.** When creators *explain* demonetisation they are policy-literate
+  — advice videos are **12.5%** folk-aligned (`agg_advice_rules.py`), rants blame
+  real policy **77%** of the time (`agg_rant_cause.py`). The gap is between what
+  they *know* and what they *fear*, not between their words and their behaviour
+  (`build_creator_talkwalk.py`).
+- **What self-censorship looks like.** Sensitive content gets benign titles
+  (**92.9%**), explicit-word-plus-framing is preferred **3.7×** over euphemism, and
+  sensitive segments shift to passive voice (**+0.10/100w**, 45/58 creators).
+- **Does it work?** No — algospeak *raises* the policy judge's demonetise rate, and
+  masking "leaks" (the plain word reappears a median ~300 words away:
+  `cs_leaky_proximity.py`). Masking is a reflex, not a working filter-dodge.
+- **The audience shares the belief.** Mirroring survives a creator fixed-effects
+  logit (`cs_audience_controls.py`).
+
 ---
 
 ## Repository layout
@@ -173,22 +202,32 @@ amrita-review/
 ├── requirements.txt
 ├── docs/
 │   ├── architecture.png          # block diagram (gen_architecture.py rebuilds it)
-│   └── gen_architecture.py
+│   ├── gen_architecture.py
+│   └── RESULTS.md                # consolidated results: every experiment, with caveats
 ├── src/                          # the 10 pipeline scripts + shared backend
 │   ├── 01..10_*.py
 │   ├── common.py
-│   └── policy_rag.py, monetisation_judge.py, poc_*.py
+│   ├── policy_rag.py, monetisation_judge.py, poc_*.py
+│   └── followups/                # supervisor-review extension experiments
+│       ├── README.md
+│       └── exp*/scrape*/cs_*/agg_*/build_*  (+ casestudy_common.py shim)
 ├── data/
 │   ├── dataset/<creator>/*.json  # sample transcript corpus (538 videos)
-│   ├── euph_transcripts.jsonl    # 1,189 dated transcripts (timeline)
+│   ├── euph_transcripts.jsonl    # dated transcripts (timeline)
 │   ├── policy_corpus/            # System A knowledge (YouTube guidelines + index)
 │   ├── folk_corpus/              # System B knowledge (creator folk rules)
 │   ├── ground_truth_labels.csv   # creator-confirmed monetised/demonetised labels
-│   ├── 05_1000videos_ad_systemA_systemB.csv   # precomputed A/B/ad (for Stage 8)
-│   ├── counterfactual_judge_output.jsonl      # precomputed (for Stage 10)
+│   ├── 05_1000videos_ad_systemA_systemB.csv   # precomputed A/B/ad (Stage 8 + annotation)
+│   ├── metadiscourse.jsonl       # follow-ups: advice/rant/interview cohorts
+│   ├── out1.jsonl, out2.jsonl, out_ctalk.jsonl   # follow-ups: qwen3 judgements
+│   ├── creator_talk.jsonl, rants.jsonl, advice.jsonl, podcast_pairs.jsonl
+│   ├── annotation/               # #2 human-validation instrument (sample + key + strata)
 │   └── sample_channels.csv
 └── outputs/                      # generated CSVs + figures (git-ignored)
 ```
+
+`data/master_transcripts.jsonl` (the follow-up corpus) is **regenerated** by
+`src/followups/build_master_corpus.py` from the bundled data, not committed.
 
 ---
 
