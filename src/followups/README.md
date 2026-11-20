@@ -1,9 +1,8 @@
 # Follow-up experiments
 
-Extensions to the core pipeline (`src/01`–`src/10`) added in response to
-supervisor review. They reuse the core detector/lexicon via a thin shim
-(`casestudy_common.py` → `src/common.py`), so they count things exactly the way
-the main pipeline does. Generated result files are written to
+Extensions to the core pipeline (`src/01`–`src/10`). They reuse the core
+detector/lexicon via a thin shim (`casestudy_common.py` → `src/common.py`), so
+they count things exactly the way the main pipeline does. Generated result files are written to
 `outputs/followups/` (git-ignored); the written-up numbers live in
 [`docs/RESULTS.md`](../../docs/RESULTS.md).
 
@@ -49,7 +48,7 @@ Creators are **policy-literate when they explain demonetisation** but act on
 | `cs_leaky_proximity.py` | **leaky-mask proximity**: how far the plain word sits from the mask | — |
 | `per_creator_masking.py` | per-creator masking rate over the master corpus (recall-heavy lexicon) | — |
 
-## Measurement validity (supervisor items #2, #4, #5)
+## Measurement validity (#2, #4, #5)
 
 | Script | Result | Needs |
 |---|---|---|

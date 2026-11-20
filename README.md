@@ -164,8 +164,8 @@ python src/09_timeline_analysis.py --category true-crime --min-n 5
 | — | `policy_rag.py`, `monetisation_judge.py`, `poc_*.py` | — | RAG + Ollama backend for the judges |
 
 See **[`src/followups/`](src/followups/README.md)** for the extension experiments
-added in supervisor review (Talk-vs-Walk, leaky-mask proximity, audience controls,
-detector precision/recall, and the human-validation instrument).
+(Talk-vs-Walk, leaky-mask proximity, audience controls, detector precision/recall,
+and the human-validation instrument).
 
 ---
 
@@ -208,7 +208,7 @@ amrita-review/
 │   ├── 01..10_*.py
 │   ├── common.py
 │   ├── policy_rag.py, monetisation_judge.py, poc_*.py
-│   └── followups/                # supervisor-review extension experiments
+│   └── followups/                # extension experiments
 │       ├── README.md
 │       └── exp*/scrape*/cs_*/agg_*/build_*  (+ casestudy_common.py shim)
 ├── data/

@@ -125,7 +125,7 @@ From across the project: the reflexive in-video behaviour is **folk-driven**:
 implies.** But a creator-level test (below) shows this is a **perception-level**
 dissociation, not a within-creator "talks policy / scrubs words" effect.
 
-### Creator-level Talk-vs-Walk — the supervisor's priority test
+### Creator-level Talk-vs-Walk
 *(Results_Exp1b_CreatorLevel_TalkVsWalk.txt)*
 
 We matched creators present in **both** a demonetisation talk-video **and** the
@@ -306,14 +306,14 @@ Descriptive only.
 
 ---
 
-## PART VIII — Measurement validity & defensibility *(supervisor items #2, #4, #6)*
+## PART VIII — Measurement validity & defensibility *(#2, #4, #6)*
 
 ### #2 — Human validation of the 4× gap (instrument built, labels pending)
 *(results_deliverable/annotation/)*
 
-An examiner will ask whether the A-vs-B gap is just two models' different
+A natural challenge is whether the A-vs-B gap is just two models' different
 tendencies. The validation instrument is built and ready, and it answers **two
-distinct questions** (per supervisor):
+distinct questions:**
 
 - **Question A — do humans also see a large policy-vs-folk gap?** (validity of the
   *gap*). Reported **unweighted** (on the sample) **and re-weighted to the full
@@ -337,7 +337,7 @@ size and inverse-probability weight w = N_h/n_h:
 | agree \| ads | 236 | 50 | 4.72 |
 | agree \| noad | 160 | 30 | 5.33 |
 
-**Interpretation grid (supervisor):** large human gap + A↔policy / B↔folk = strong
+**Interpretation grid:** large human gap + A↔policy / B↔folk = strong
 validation; large gap + only moderate system agreement = gap holds, instruments
 need qualification; small human gap = the 4× result may be model-dependent;
 annotators disagree (low kappa) = protocol needs refinement. `score_annotation.py`
@@ -356,8 +356,8 @@ also reports results **stratified** by the four strata and an error table.
   unalive 2…), so little lexical masking is being missed. True recall is deferred
   to the #2 human reference set rather than asserted.
 
-### #6 — Three examiner questions, pre-answered
-| Likely question | Prepared answer |
+### #6 — Three anticipated questions, pre-answered
+| Anticipated question | Prepared answer |
 |---|---|
 | *Are the LLM judges reliable?* | #2 human validation (kappa + human-vs-A/B); the gap is measured *between* two instruments on the *same* videos, controlling shared error; #7 shows where System A is genuinely uncertain. |
 | *Does masking actually prevent demonetisation?* | No — the **controlled counterfactual** shows algospeak *raises* the policy judge's demonetise rate (reads as evasion) and the **leaky mask** shows it coexists with the plain word at no ad cost. Masking is ritual, not a working filter-dodge. |
