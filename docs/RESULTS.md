@@ -29,7 +29,7 @@ not a working evasion of any filter.
 ## PART I — The central result: belief ≠ reality
 
 ### Headline — the 4× perception gap
-*(Key_Results_Highlights.txt; fig_hero_perception_gap.png)*
+*(results/01_headline_perception_gap.csv; results/01_headline_1000videos_A_B_ad.csv)*
 
 Two independent LLM judges rated a random 1,000-video sample:
 - **System A** judges against YouTube's *actual* advertiser-friendly policy (RAG over the policy corpus).
@@ -45,7 +45,7 @@ A **56-point, 3.9× gap**; the CIs do not overlap. The two systems agree on only
 expect **70%** to be demonetised. This is the project's central, defensible result.
 
 ### Misdirected self-censorship — the hard-ground-truth version
-*(Results_WOW_MisdirectedSelfCensorship.txt)*
+*(results/02_misdirected_601_ads.csv)*
 
 Restricting to **601 videos literally serving ads right now** (an ad serving
 *proves* monetisation — the one-directional rule, no inference):
@@ -57,7 +57,7 @@ monetisation label here is hard ground truth, this is the strongest form of the
 gap.
 
 ### Topic concentration
-*(23_creator_topic_policy_AB.csv)*
+*(results/03_topic_concentration_A_vs_B.csv)*
 
 On a curated topic-shift set, System B was stricter than System A on **9 of 11**
 topics. Policy would monetise non-graphic commentary on Trump, abortion, COVID,
@@ -72,7 +72,7 @@ The sharpest finding of the final phase. The explicit/verbal layer and the
 reflexive/behavioural layer disagree with each other.
 
 ### #1 — The "TALK": stated rules in advice videos
-*(Results_Exp1_AdviceFraming.txt)*
+*(results/04_talk_advice_rules.csv; results/04_talk_advice_alignment.csv)*
 
 **Cohort:** 19 "how to avoid demonetisation / words you can't say" advice videos —
 creators' explicit public model of the rules.
@@ -94,7 +94,7 @@ policy-dominant, 1/19 folk-dominant. Lexical twin agrees: **15.9%** folk loading
 platform mechanics. When creators *talk*, they are policy-literate.
 
 ### #2 — The retrospective story: what rants blame
-*(Results_Exp2_RantCause.txt)*
+*(results/05_talk_rant_causes.csv; results/05_talk_rant_top_blame.csv)*
 
 **Cohort:** 62 "my channel got demonetised" post-mortems (2 supplied playlists +
 8 searches). qwen3 extracts the blamed cause.
@@ -126,7 +126,7 @@ implies.** But a creator-level test (below) shows this is a **perception-level**
 dissociation, not a within-creator "talks policy / scrubs words" effect.
 
 ### Creator-level Talk-vs-Walk
-*(Results_Exp1b_CreatorLevel_TalkVsWalk.txt)*
+*(results/06_creator_level_talk_vs_walk.csv)*
 
 We matched creators present in **both** a demonetisation talk-video **and** the
 behavioural corpus (with a validated masking rate). Advice-channel creators
@@ -159,7 +159,7 @@ note accordingly.)*
 ## PART III — What self-censorship actually looks like (the positive signals)
 
 ### Shield #1 — Packaging (title sanitisation)
-*(Results_Shields_1_2_3.txt; master corpus, 3,617 videos)*
+*(results/07_shields_packaging_framing.csv; master corpus, 3,617 videos)*
 
 Of 2,811 videos with explicitly sensitive transcripts, the **title is benign in
 92.9%** [91.9, 93.8] — only 7.1% carry an explicit sensitive word in the title.
@@ -167,14 +167,14 @@ Creators routinely wrap sensitive content in a clean title. **This is the single
 largest observable self-censorship behaviour.**
 
 ### Shield #3 — Framing over lexicon
-*(Results_Shields_1_2_3.txt)*
+*(results/07_shields_packaging_framing.csv)*
 
 Creators lean on **explicit-word + context framing** (414 videos) far more than on
 euphemism-without-framing (111) — a **3.7×** preference. They say the real word but
 cushion it with documentary/educational context rather than coding it.
 
 ### Register shift — passive voice (Exp B & C)
-*(Results_ExpB_WithinVideo_Specificity.txt; Results_ExpC_PassiveAgentOmission.txt)*
+*(results/08_register_passive_voice.csv)*
 
 Within the same video, sensitive segments use **+0.103 passive verbs /100w**
 [0.070, 0.135] more than that video's non-sensitive segments. At the creator level
@@ -183,7 +183,7 @@ Within the same video, sensitive segments use **+0.103 passive verbs /100w**
 Sensitive content shifts to a **more passive/formal register** — modest but real.
 
 ### Algospeak caught in the wild (hand-validated)
-*(Key_Results_Highlights.txt; guide5_validation_sample.csv)*
+*(results/09_algospeak_validation_sample.csv)*
 
 Real coded swaps, manually verified: *the vid* → covid · *grape* → rape · *cheeto*
 → Trump · *unalive* → kill · *pdf file* → pedophile · *yahtzee* → nazi. Sparse but
@@ -208,17 +208,17 @@ collectively they show the behaviour is light and non-strategic.
 | Counterfactual | Algospeak fools the policy judge | **Backfires** | algospeak 47%→57% not-monetised; disclaimer helps →23%; folk immune ~90% |
 | Case studies | Policy/news/enforcement/sponsorship raise masking | **NULL ×4** | no consistent masking rise around any external pressure |
 
-**The leaky mask (Results_NEW_LeakyMask.txt)** is the most telling: a within-video
+**The leaky mask (results/11_leaky_mask_proximity.csv)** is the most telling: a within-video
 result (immune to creator/topic/time confounds) showing creators mask a word and
 also say it plainly in the same video. **Proximity refinement (#3,
-Results_Exp4b/cs_leaky_proximity.csv):** when a mask "leaks," the plain word sits a
+results/11_leaky_mask_proximity.csv):** when a mask "leaks," the plain word sits a
 **median ~300 words (~2 min) away**; only **28–38% of leaks are local** (same
 sentence / ~30s) and just **4–7% are same-breath**. So it is **not** emphatic
 self-correction ("f***, I mean fuck") — masking flips on and off by *momentary
 context* within a video, a local reflex rather than whole-video word-avoidance.
 (n=29 leak tokens — small; directional.)
 
-**The counterfactual (Results_WOW_CounterfactualExperiment.txt)** is the only true
+**The counterfactual (results/12_counterfactual_algospeak.csv)** is the only true
 controlled experiment: changing only the wording, algospeak actually *raises* the
 policy judge's demonetise rate (it reads as evasion), while a documentary
 disclaimer lowers it — the ritual is aimed at the wrong lever.
@@ -228,7 +228,7 @@ disclaimer lowers it — the ritual is aimed at the wrong lever.
 ## PART V — Dynamics, timing, and robustness
 
 ### #7 — Policy ambiguity zones
-*(Results_Exp7_PolicyAmbiguity.txt)*
+*(results/13_policy_ambiguity_zones.csv)*
 
 System A run K=5× at temp 0.7 on 216 transcripts; ambiguity = entropy over the 5
 verdicts. **43.1%** of videos make the policy judge *waver* across identical runs —
@@ -238,7 +238,7 @@ the policy boundary is genuinely fuzzy. Masking concentrates in these gray zones
 unknowable** — a rational root for an irrational habit.
 
 ### #4 — Telephone-game drift
-*(Results_Exp4_TelephoneGame.txt)*
+*(results/14_telephone_game_drift.csv)*
 
 Folk-marker density in creator discourse vs official policy videos: **38.5×** more
 folk-loaded (18% vs 5% use a superstitious marker) — but **p=0.18, not
@@ -246,14 +246,13 @@ significant** (folk markers are rare, concentrated in a minority). Directional
 drift, not wholesale distortion.
 
 ### Self-censorship is a personal fingerprint
-*(Results_SmallPoliticalCreators_Longitudinal.txt; guide8_timeline_beforeafter.csv)*
+*(results/15_creator_fingerprint_timeline.csv)*
 
 Masking is stable *per creator* across a decade — one creator masks ~100% of
 videos, another ~0%, each steady cycle after cycle. It's a production habit baked
 into style, not a response to events. 16/30 creators never mask.
 
 ### Contagion is in the vocabulary, but timing is null
-*(Results_NEW_ContagionOfSelfCensorship.txt; Results_NEW_RedditTiming_Dated.txt)*
 
 Specific euphemisms (grape, unalive, cheeto) spread cross-genre across creators in
 S-curves — governance-by-vocabulary-contagion. **But** Reddit demonetisation-anxiety
@@ -265,7 +264,7 @@ reading.
 ---
 
 ## PART VI — The audience shares the belief
-*(Results_NEW_AudienceSharesTheBelief.txt)*
+*(results/16_audience_mirroring_controls.csv)*
 
 Across **314,705 comments** on 1,532 videos: viewers use algospeak themselves
 (~28%), openly discuss demonetisation (~10%), and mirror the creator's masking
@@ -287,7 +286,7 @@ controlled.)
 ---
 
 ## PART VII — #3 Podcast-vs-main register (case study)
-*(Results_Exp3_PodcastDelta.txt)*
+*(results/17_podcast_vs_main_register.csv)*
 
 Within-creator format delta for **h3** (24 main vs 20 podcast videos; lighter form,
 not topic-matched):
@@ -309,7 +308,7 @@ Descriptive only.
 ## PART VIII — Measurement validity & defensibility *(#4, #6)*
 
 ### #4 — Detector precision vs recall
-*(Results_Exp4b_DetectorPrecisionRecall.txt; cs_detector_compare.csv)*
+*(results/18_detector_precision_recall.csv)*
 
 - The project's **strict** detector (bleeps + letter-masks + unambiguous coded
   terms) is high precision (hand-validated).
