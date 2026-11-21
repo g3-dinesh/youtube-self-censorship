@@ -1,26 +1,33 @@
-"""STAGE 1 (server variant) - Collect channel transcripts on a remote machine (optional).
+"""STAGE 1 (bulk variant) - Collect channel transcripts for large, resumable runs.
 
-Same job as 01_collect_channel_transcripts.py, but tuned for running on a
-server with NO browser cookies and a different IP. This is the variant that
-actually collected most of the project corpus (it runs detached in tmux so it
-survives SSH drops). Differences from the local version:
-  - no cookies (uses the android/web player client instead of a login)
-  - forces the web + android player clients and ignore_no_formats_error, because
-    the android client returns no video formats but still exposes captions
-  - longer 429 backoff, emits a `category` tag per channel
-  - CAP is read from the environment; an optional seen-ids file skips videos
-    already collected (so a re-run only adds new ones)
+Collects the same data as 01_collect_channel_transcripts.py (cookie-free captions
+via the android + web player clients), but is shaped for a long, unattended batch
+rather than an interactive run. This is the variant that gathered most of the
+project corpus. Use 01 for a quick demo; use this when scraping many channels at
+once or re-running over time.
+
+How it differs from 01:
+  - Resumable: pass a file of already-collected video ids (argv[2]) and a re-run
+    skips them, so you only ever fetch new videos. Ideal for incremental growth.
+  - Streaming: writes one JSON object per line to STDOUT (pipe to a file), so a
+    long run can be appended to and survives interruptions / detached shells.
+  - Config by environment + args, not flags: CAP (videos per channel) is an env
+    var; channels come from a JSON list that also carries a per-channel `category`
+    tag (emitted on every row).
+  - Gentler on the API: longer backoff on HTTP 429 ("slow down") responses.
+Both scripts are cookie-free and need no login; `ignore_no_formats_error` lets us
+past the android client returning no video formats (we only want the captions).
 
 Input
-  argv[1]  channels JSON: a list of {"channel","category","url"} objects
-  argv[2]  (optional) path to a file of video ids already collected, one per line
-  env CAP  videos sampled per channel (default 50)
+  argv[1]  channels JSON: a list of {"channel", "category", "url"} objects
+  argv[2]  (optional) path to a file of already-collected video ids, one per line
+  env CAP  videos sampled per channel, spread across its history (default 50)
 
-Output (stdout, one JSON object per video)
+Output (STDOUT, one JSON object per video)
   {channel, category, id, upload_date, title, view_count, transcript}
 
-Example (on the remote machine)
-  CAP=150 python3 01b_collect_channel_transcripts_server.py channels.json seen.txt > out.jsonl
+Example
+  CAP=150 python src/01b_collect_channel_transcripts_server.py channels.json seen.txt > out.jsonl
 """
 import json, os, re, sys, time, urllib.request
 import yt_dlp
