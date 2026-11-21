@@ -76,11 +76,19 @@ def main():
         json.dump({"video_id": vid, "verdict": parsed},
                   open(os.path.join(OUT, vid + ".json"), "w", encoding="utf-8"),
                   ensure_ascii=False, indent=2)
+        reasoning = (parsed.get("reasoning", "") if parsed else "") or ""
+        folk = parsed.get("triggered_folk_rules", []) if parsed else []
+        folk_str = ", ".join(str(x) for x in folk) if folk else ""
         rows.append({"video_id": vid, "creator": lab.get("creator", "") or rec.get("slug", ""),
                      "true_label": (lab.get("label", "") or "").strip(), "verdict": verdict,
                      "first_30s_risk": parsed.get("first_30s_risk", "") if parsed else "",
-                     "confidence": parsed.get("confidence", "") if parsed else ""})
-        print(f"[{i}/{len(ids)}] {vid:14} -> B={verdict}")
+                     "confidence": parsed.get("confidence", "") if parsed else "",
+                     "triggered_folk_rules": folk_str, "reasoning": reasoning})
+        print(f"[{i}/{len(ids)}] {vid:14} -> B={verdict}  (first_30s={parsed.get('first_30s_risk', '') if parsed else ''})")
+        if folk_str:
+            print(f"      folk rules triggered: {folk_str}")
+        if reasoning:
+            print(f"      reason : {reasoning[:300]}")
 
     if rows:
         out_csv = os.path.join(HERE, "..", "outputs", "system_b_verdicts.csv")

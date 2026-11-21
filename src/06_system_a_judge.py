@@ -86,11 +86,18 @@ def main():
         json.dump({"video_id": vid, "verdict": parsed, "signals": flags},
                   open(os.path.join(OUT, vid + ".json"), "w", encoding="utf-8"),
                   ensure_ascii=False, indent=2)
+        reasoning = (parsed.get("overall_reasoning", "") if parsed else "") or ""
+        cats = "; ".join(p.get("category", "") for p in (parsed.get("policy_areas") or [])) if parsed else ""
         rows.append({"video_id": vid, "creator": lab.get("creator", "") or rec.get("slug", ""),
                      "true_label": (lab.get("label", "") or "").strip(), "verdict": verdict,
                      "risk": parsed.get("risk", "") if parsed else "",
-                     "confidence": parsed.get("confidence", "") if parsed else ""})
-        print(f"[{i}/{len(ids)}] {vid:14} -> A={verdict}")
+                     "confidence": parsed.get("confidence", "") if parsed else "",
+                     "policy_areas": cats, "reasoning": reasoning})
+        print(f"[{i}/{len(ids)}] {vid:14} -> A={verdict}  (risk={parsed.get('risk', '') if parsed else ''})")
+        if cats:
+            print(f"      policy : {cats}")
+        if reasoning:
+            print(f"      reason : {reasoning[:300]}")
 
     if rows:
         out_csv = os.path.join(HERE, "..", "outputs", "system_a_verdicts.csv")
