@@ -3,7 +3,7 @@
 Judges whether a video SHOULD be monetised under YouTube's *written*
 advertiser-friendly guidelines. It retrieves the policy sections the transcript
 actually touches (RAG over data/policy_corpus) and asks an Ollama model
-(qwen3:8b on the GPU server) for a grounded monetise / limited / demonetise
+(qwen3:8b via your local Ollama) for a grounded monetise / limited / demonetise
 verdict with a cited policy category.
 
 This is the "ground truth of the rules" half of the A-vs-B comparison. System B
@@ -24,7 +24,7 @@ Output
 
 Example
   python src/06_system_a_judge.py --from-csv data/ground_truth_labels.csv --limit 10
-  python src/06_system_a_judge.py --video-id <id> --host http://192.168.144.226:11434
+  python src/06_system_a_judge.py --video-id <id> --host http://localhost:11434
 """
 import argparse, csv, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

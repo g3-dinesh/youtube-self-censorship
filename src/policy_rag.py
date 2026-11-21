@@ -112,7 +112,7 @@ def main():
                                  args.index, args.meta)
         except urllib.error.URLError as e:
             sys.exit(f"could not reach Ollama at {args.host}: {e}\n"
-                     "Is the SSH tunnel open and 'nomic-embed-text' pulled?")
+                     "Is Ollama running and 'nomic-embed-text' pulled?")
         print(f"-> {args.index}  ({n} chunks, dim {dim}, model {args.model})")
     elif args.cmd == "query":
         if not (os.path.exists(args.index) and os.path.exists(args.meta)):

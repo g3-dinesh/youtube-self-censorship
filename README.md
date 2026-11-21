@@ -57,11 +57,11 @@ every analysis counts things the same way.
 - **Optional:** the ad checker (Stage 4) and metadata scraper (Stage 2) can use an
   exported `cookies.txt` at `data/www.youtube.com_cookies.txt` to reduce
   throttling, but it is not required. It stays on your machine and is git-ignored.
-- **For Stages 6–7 (the judges) only:** an [Ollama](https://ollama.com) server with
-  `qwen3:8b` and `nomic-embed-text` pulled. In this project it runs on a university
-  GPU server; point the scripts at it with `--host` or the `OLLAMA_HOST` env var.
-  The judges are not needed to reproduce the headline figures — their output is
-  bundled.
+- **For Stages 6–7 (the judges) only:** a local [Ollama](https://ollama.com) server
+  with `qwen3:8b` and `nomic-embed-text` pulled (`ollama pull qwen3:8b`,
+  `ollama pull nomic-embed-text`). The scripts default to `http://localhost:11434`;
+  override with `--host` or the `OLLAMA_HOST` env var. The judges are not needed to
+  reproduce the headline figures — their output is bundled.
 
 ---
 
@@ -101,7 +101,7 @@ python src/01_collect_channel_transcripts.py --channels data/sample_channels.csv
 #   --cap         max videos sampled per channel, spread across its history
 ```
 
-**Stage 1 (server) — same collection on a remote GPU server (no cookies)**
+**Stage 1 (bulk) — same collection, cookie-free, for a long detached run**
 ```bash
 # channels JSON is a list of {channel,category,url}; runs detached in tmux
 CAP=150 python src/01b_collect_channel_transcripts_server.py \
@@ -126,7 +126,7 @@ python src/03_fetch_single_video.py <video_id>   # pull transcript + details to 
 
 **Stage 3 — the judges (need Ollama)**
 ```bash
-# runs on the GPU server; qwen3:8b, temperature 0
+# uses your local Ollama; qwen3:8b, temperature 0
 export OLLAMA_HOST=http://localhost:11434
 python src/06_system_a_judge.py --from-csv data/ground_truth_labels.csv --limit 10
 python src/07_system_b_judge.py --from-csv data/ground_truth_labels.csv --limit 10

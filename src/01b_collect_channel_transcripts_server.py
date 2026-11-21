@@ -1,10 +1,10 @@
-"""STAGE 1 (server variant) - Collect channel transcripts ON a remote GPU server.
+"""STAGE 1 (server variant) - Collect channel transcripts on a remote machine (optional).
 
 Same job as 01_collect_channel_transcripts.py, but tuned for running on a
 server with NO browser cookies and a different IP. This is the variant that
 actually collected most of the project corpus (it runs detached in tmux so it
 survives SSH drops). Differences from the local version:
-  - no cookies (relies on the server IP instead of a logged-in session)
+  - no cookies (uses the android/web player client instead of a login)
   - forces the web + android player clients and ignore_no_formats_error, because
     the android client returns no video formats but still exposes captions
   - longer 429 backoff, emits a `category` tag per channel
@@ -19,7 +19,7 @@ Input
 Output (stdout, one JSON object per video)
   {channel, category, id, upload_date, title, view_count, transcript}
 
-Example (on the server)
+Example (on the remote machine)
   CAP=150 python3 01b_collect_channel_transcripts_server.py channels.json seen.txt > out.jsonl
 """
 import json, os, re, sys, time, urllib.request

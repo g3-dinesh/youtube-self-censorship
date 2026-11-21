@@ -11,7 +11,7 @@ Score:  each rule is weighted by how often its keywords appear in the corpus.
 
 Reads the demo posts and writes a DEMO rule file to outputs/followups/ — it does
 NOT overwrite the validated data/folk_corpus/folk_rules.json that ships with the
-repo. Needs Ollama (the GPU-server tunnel from RUNBOOK Step 6).
+repo. Needs a running Ollama server (localhost by default; see README).
 
     python src/followups/distill_folk_rules.py                     # from the demo posts
     python src/followups/distill_folk_rules.py --in data/folk_corpus/reddit.jsonl

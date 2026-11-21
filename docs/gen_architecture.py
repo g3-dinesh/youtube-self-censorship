@@ -38,7 +38,7 @@ def band(x, y, w, h, label, col):
 # stage bands
 band(0.2, 6.7, 12.6, 2.0, "STAGE 1  ·  COLLECT (local machine)", BLUE)
 band(0.2, 4.6, 12.6, 1.9, "STAGE 2  ·  SIGNALS", ORANGE)
-band(0.2, 2.5, 12.6, 1.9, "STAGE 3  ·  JUDGES (Ollama GPU server)", VERM)
+band(0.2, 2.5, 12.6, 1.9, "STAGE 3  ·  JUDGES (local Ollama)", VERM)
 band(0.2, 0.3, 12.6, 1.9, "STAGE 4  ·  ANALYSIS + FIGURES", GREEN)
 
 # stage 1
