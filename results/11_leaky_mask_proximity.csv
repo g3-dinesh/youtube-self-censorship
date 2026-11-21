@@ -1,0 +1,14 @@
+metric,value,note
+videos contributing masked+plain concept pairs,17,
+masked concept tokens (any),86,
+masked tokens with >=1 plain of same concept in video,29,33.7% of masked tokens 'leak'
+,,
+median word-gap mask->nearest plain,301,
+mean word-gap,500.7,
+,,
+IMMEDIATE (plain within 12 words / same breath),2,6.9%
+SAME SENTENCE,6,20.7%
+WITHIN ~30s (<=75 words),3,10.3%
+FAR / elsewhere in video (>75 words),18,62.1%
+,,
+TOTAL within ~30s or same sentence,11,37.9% of leaks are LOCAL

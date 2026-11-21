@@ -1,0 +1,30 @@
+metric,count,note
+videos scanned,3617,
+STRICT detector flags (bleep/mask + unambiguous coded),1031,28.5%
+FULL LEXICON flags,375,10.4%
+flagged by LEXICON ONLY via a benign-prone word,181,5.0% of corpus = precision loss
+lexicon over-count factor (full/strict),0.4,
+,,
+--- top benign-prone terms by videos flagged (likely FALSE positives) ---,,
+   'sa',200,5.5% of videos
+   'corn',92,2.5% of videos
+   'accountant',18,0.5% of videos
+   'swimmers',8,0.2% of videos
+   'mascara',6,0.2% of videos
+   'panoramic',5,0.1% of videos
+   'cheese pizza',5,0.1% of videos
+   'the vid',3,0.1% of videos
+   'panorama',2,0.1% of videos
+   'cornucopia',2,0.1% of videos
+   'pew pew',2,0.1% of videos
+   'panini',2,0.1% of videos
+,,
+--- unambiguous coded terms by videos flagged (true masking) ---,,
+   'grape',33,0.91%
+   'cheeto',6,0.17%
+   'pdf file',4,0.11%
+   'unalive',2,0.06%
+   'unalived',2,0.06%
+   'yahtzee',2,0.06%
+   'seggs',1,0.03%
+   'sewer slide',1,0.03%

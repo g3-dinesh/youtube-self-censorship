@@ -1,0 +1,7 @@
+system,version,pct_not_monetised,ci_lo,ci_hi,n
+System A (real policy),A_original,46.7,34.6,59.1,60
+System A (real policy),B_euphemised,56.7,44.1,68.4,60
+System A (real policy),C_euph_disclaimer,23.3,14.4,35.4,60
+System B (folk belief),A_original,90.0,79.9,95.3,60
+System B (folk belief),B_euphemised,90.0,79.9,95.3,60
+System B (folk belief),C_euph_disclaimer,91.7,81.9,96.4,60

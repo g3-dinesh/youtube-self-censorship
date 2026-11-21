@@ -1,0 +1,6 @@
+metric,value
+videos_scanned,2125
+videos_with_masking,732
+masking_rate_pct,34.4
+of_masked_videos_that_ALSO_say_plain_word,566
+leak_rate_pct,77.3

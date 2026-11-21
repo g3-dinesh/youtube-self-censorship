@@ -1,0 +1,9 @@
+metric,value
+transcripts,216
+runs_per_video_K,5
+temperature,0.7
+videos_policy_judge_wavers_pct,43.1
+ambiguity_masked,0.353
+ambiguity_unmasked,0.217
+ambiguity_sensitive_topic,0.267
+ambiguity_nonsensitive,0.162

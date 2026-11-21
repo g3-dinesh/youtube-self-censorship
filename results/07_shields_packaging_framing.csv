@@ -1,0 +1,9 @@
+shield,metric,value
+packaging,sensitive_videos,2811
+packaging,benign_title_pct,92.9
+packaging,benign_title_ci_lo,91.9
+packaging,benign_title_ci_hi,93.8
+packaging,explicit_word_in_title_pct,7.1
+framing,explicit_word_plus_context_videos,414
+framing,euphemism_without_framing_videos,111
+framing,framing_preference_x,3.7

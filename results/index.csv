@@ -1,0 +1,25 @@
+results_section,result,csv_file,produced_by
+PART I,Headline 4x perception gap (per-video A/B/ad on 1000 videos),01_headline_1000videos_A_B_ad.csv,src/06_system_a_judge.py + src/07_system_b_judge.py
+PART I,Headline 4x gap (A vs B demonetise rate + CIs),01_headline_perception_gap.csv,summary of 01_headline_1000videos_A_B_ad.csv
+PART I,Headline gap notes (ratio / agreement / 808 fine),01_headline_perception_gap_notes.csv,summary of 01_headline_1000videos_A_B_ad.csv
+PART I,Misdirected self-censorship (601 ad-serving videos),02_misdirected_601_ads.csv,src/08_policy_avoidance.py
+PART I,Topic concentration (B stricter than A on 9/11 topics),03_topic_concentration_A_vs_B.csv,src/06_system_a_judge.py + src/07_system_b_judge.py (topic-shift set)
+PART II,TALK: stated rules in advice videos (type counts),04_talk_advice_rules.csv,src/followups/exp1_advice_rules.py + agg_advice_rules.py
+PART II,TALK: advice folk-theory alignment (12.5%),04_talk_advice_alignment.csv,src/followups/agg_advice_rules.py
+PART II,TALK: rant blamed-cause distribution,05_talk_rant_causes.csv,src/followups/exp2_rant_cause.py + agg_rant_cause.py
+PART II,TALK: rant top blame,05_talk_rant_top_blame.csv,src/followups/agg_rant_cause.py
+PART II,Creator-level Talk-vs-Walk (5 matched creators),06_creator_level_talk_vs_walk.csv,src/followups/build_creator_talkwalk.py
+PART III,Shields: packaging + framing-over-lexicon,07_shields_packaging_framing.csv,src/followups/per_creator_masking.py (shields analysis)
+PART III,Register shift: passive voice within/across creators,08_register_passive_voice.csv,within-video + creator-clustered bootstrap
+PART III,Algospeak caught in the wild (hand-validated sample),09_algospeak_validation_sample.csv,src/05_self_censorship_scan.py + manual validation
+PART IV,The nulls (deliberate negatives),10_nulls_summary.csv,multiple null experiments (see RESULTS.md Part IV)
+PART IV,Leaky-mask proximity (median ~300 words),11_leaky_mask_proximity.csv,src/followups/cs_leaky_proximity.py
+PART IV,Counterfactual: algospeak backfires,12_counterfactual_algospeak.csv,src/10_counterfactual_experiment.py
+PART V,Policy ambiguity zones (43.1% waver),13_policy_ambiguity_zones.csv,src/06_system_a_judge.py (K=5, temp 0.7 entropy)
+PART V,Telephone-game drift (38.5x folk-loaded),14_telephone_game_drift.csv,telephone-game marker analysis
+PART V,Self-censorship is a personal fingerprint,15_creator_fingerprint_timeline.csv,longitudinal before/after analysis
+PART VI,Audience mirroring survives controls (OR 1.50),16_audience_mirroring_controls.csv,src/followups/cs_audience_controls.py
+PART VII,Podcast-vs-main register delta,17_podcast_vs_main_register.csv,src/followups/exp3_podcast_delta.py
+PART VIII,Detector precision vs recall,18_detector_precision_recall.csv,src/followups/cs_detector_compare.py
+PART VIII,Self-censorship summary (34.4% masked / 77.3% leak),19_self_censorship_summary.csv,src/05_self_censorship_scan.py
+PART V/VIII,Masking rate per quarter (Wilson CIs),20_masking_timeline_by_quarter.csv,src/09_timeline_analysis.py

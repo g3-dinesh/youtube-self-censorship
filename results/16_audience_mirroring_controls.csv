@@ -1,0 +1,18 @@
+metric,value
+videos analysed (>=10 comments),1532
+creators,15
+,
+--- BIVARIATE (original claim) ---,
+aud algospeak rate | creator MASKS,38.3%  (n=478)
+aud algospeak rate | creator does NOT mask,23.0%  (n=1054)
+,
+--- (1) CREATOR FIXED-EFFECTS LOGIT (topic+size adjusted) ---,
+creator_masks odds ratio,1.50
+  95% bootstrap CI,"[1.06, 2.37]"
+  interpretation,OR>1 & CI excludes 1 => mirroring survives controls
+,
+--- (2) WITHIN-CREATOR PAIRED ---,
+creators with BOTH masked & unmasked videos,14
+mean within-creator diff (masked - unmasked) pp,5.5
+creators where masked videos have MORE aud algospeak,10/14
+Wilcoxon p,0.0546

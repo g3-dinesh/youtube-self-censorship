@@ -355,5 +355,6 @@ Descriptive only.
 ---
 
 *Generated for the MSc thesis "Investigating YouTube Self-Censorship Practices."
-Each section's numbers live in the correspondingly named file in
-`results_deliverable/`.*
+The supporting data for every result above is committed as CSVs in
+[`results/`](../results/) — see [`results/index.csv`](../results/index.csv) for
+the section → CSV → producing-script map.*

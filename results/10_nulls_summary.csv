@@ -1,0 +1,10 @@
+hypothesis,result,numbers
+Exp B: sensitive segments get vaguer,NULL,"spec diff +0.083, CI crosses 0"
+Exp C: creators hide who did it (agent omission),NULL,"-0.007 rate, wrong direction; abs 0.910 vs 0.917"
+Sponsored videos more guarded than AdSense,NULL,mask 2.5% vs 2.5% = 1.01x
+Captions mismatch spoken track,NULL,0/39
+Creators suppress sensitive words in comments,NULL (reversed),high-risk comments MORE explicit 8.4% vs 3.0%
+Post-upload title scrubbing (shadow-edit),NULL,"22/46 titles changed, 0 toward sanitised"
+Leaky mask: masking is keyword evasion,NULL,80% masked videos also say plain word; ad rate 62% vs 59%
+Counterfactual: algospeak fools policy judge,BACKFIRES,47%->57% not-monetised; disclaimer ->23%; folk immune ~90%
+Case studies: external pressure raises masking,NULL x4,no consistent masking rise around policy/news/enforcement/sponsorship
