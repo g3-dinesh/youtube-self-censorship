@@ -29,29 +29,66 @@ META = {"quiet": True, "skip_download": True, "no_warnings": True, "ignoreerrors
         "extractor_args": {"youtube": {"player_client": ["web", "android"]}}}
 
 
+import html as _html
+
+
+def _parse_caption(raw, ext):
+    """Turn a caption payload into plain text. json3 = events/segs JSON;
+    srv1/2/3 + ttml = XML with text in tags; vtt = WEBVTT cue text."""
+    if ext == "json3":
+        data = json.loads(raw)
+        parts = [s.get("utf8", "") for ev in data.get("events", []) for s in ev.get("segs") or []]
+        return re.sub(r"\s+", " ", "".join(parts)).strip()
+    if ext == "vtt":
+        keep = []
+        for ln in raw.splitlines():
+            ln = ln.strip()
+            if (not ln or ln == "WEBVTT" or "-->" in ln or ln.isdigit()
+                    or ln.startswith(("Kind:", "Language:", "NOTE"))):
+                continue
+            keep.append(re.sub(r"<[^>]+>", "", ln))
+        return re.sub(r"\s+", " ", _html.unescape(" ".join(keep))).strip()
+    # srv1/srv2/srv3/ttml -> strip XML tags
+    return re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", raw))).strip()
+
+
 def caption_text(info):
-    """Pull the English caption track straight from the info dict's URLs (no file)."""
+    """Pull the English caption track straight from the info dict's URLs (no file).
+
+    YouTube sometimes serves the json3 format as an EMPTY body even when captions
+    exist, so we try formats in order and fall back until one returns real text.
+    """
+    order = ("json3", "srv3", "srv1", "srv2", "vtt", "ttml")
     for src in (info.get("subtitles") or {}, info.get("automatic_captions") or {}):
         for lang in ("en", "en-US", "en-GB", "en-orig"):
             tr = src.get(lang)
             if not tr:
                 continue
-            url = next((t["url"] for t in tr if t.get("ext") == "json3"), tr[0].get("url"))
-            if not url:
-                continue
-            for attempt in range(4):
+            by_ext = {t.get("ext"): t.get("url") for t in tr if t.get("url")}
+            for ext in order:
+                url = by_ext.get(ext)
+                if not url:
+                    continue
+                raw = ""
+                for attempt in range(3):
+                    try:
+                        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                        raw = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
+                        break
+                    except urllib.error.HTTPError as he:
+                        if he.code == 429:
+                            time.sleep(15 * (attempt + 1)); continue
+                        raw = ""; break
+                    except Exception:
+                        raw = ""; break
+                if not raw or not raw.strip():
+                    continue  # empty body -> try the next format
                 try:
-                    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-                    raw = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
-                    data = json.loads(raw)
-                    parts = [s.get("utf8", "") for ev in data.get("events", []) for s in ev.get("segs") or []]
-                    return re.sub(r"\s+", " ", "".join(parts)).strip()
-                except urllib.error.HTTPError as he:
-                    if he.code == 429:
-                        time.sleep(20 * (attempt + 1)); continue
-                    break
+                    txt = _parse_caption(raw, ext)
                 except Exception:
-                    break
+                    txt = ""
+                if txt:
+                    return txt
     return ""
 
 
