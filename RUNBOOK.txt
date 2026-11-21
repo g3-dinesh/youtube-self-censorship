@@ -76,6 +76,12 @@
  Saves outputs/followups/reddit_demo_posts.jsonl and prints a few titles.
  (The full folk corpus the project uses is already in data/folk_corpus/.)
 
+ Turn those posts into folk-theory RULES (the System B input) -- needs Ollama
+ (do Step 6 first):
+     python src/followups/distill_folk_rules.py
+ Saves outputs/followups/folk_rules_demo.json/.txt. This DEMO file is separate
+ from the validated data/folk_corpus/folk_rules.json that System B loads.
+
 
 --------------------------------------------------------------------------------
  STEP 6.  START OLLAMA AND PULL THE MODELS            [OLLAMA, NET once]

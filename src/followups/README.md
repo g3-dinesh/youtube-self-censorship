@@ -21,6 +21,25 @@ pip install -r requirements.txt            # adds scipy + scikit-learn
 python src/followups/build_master_corpus.py   # -> data/master_transcripts.jsonl
 ```
 
+## Folk-theory corpus — how System B's rules are built
+
+The scrape -> distil -> judge chain behind System B:
+
+| Step | Script | What it does | Needs |
+|---|---|---|---|
+| scrape | `collect_reddit_demo.py` | pull dated Reddit posts (Arctic Shift, no login) | network |
+| distil | `distill_folk_rules.py` | qwen3 map-reduce: posts -> belief statements -> ranked canonical folk rules | Ollama |
+| judge | `../07_system_b_judge.py` | loads the rules and judges videos in the voice of creator lore | Ollama |
+
+```bash
+python src/followups/collect_reddit_demo.py --limit 25     # -> outputs/followups/reddit_demo_posts.jsonl
+python src/followups/distill_folk_rules.py                 # -> outputs/followups/folk_rules_demo.json/.txt
+```
+
+`distill_folk_rules.py` writes a **demo** rule file to `outputs/followups/`; it does
+**not** overwrite the validated `data/folk_corpus/folk_rules.json` that System B
+actually loads (that one was distilled from the full ~1,200-snippet corpus).
+
 ## The Talk-vs-Walk phenomenon (strongest contribution)
 
 Creators are **policy-literate when they explain demonetisation** but act on
