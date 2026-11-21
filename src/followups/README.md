@@ -67,20 +67,9 @@ Creators are **policy-literate when they explain demonetisation** but act on
 | `cs_leaky_proximity.py` | **leaky-mask proximity**: how far the plain word sits from the mask | — |
 | `per_creator_masking.py` | per-creator masking rate over the master corpus (recall-heavy lexicon) | — |
 
-## Measurement validity (#2, #4, #5)
+## Measurement validity (#4, #5)
 
 | Script | Result | Needs |
 |---|---|---|
 | `cs_detector_compare.py` | **#4** strict vs lexicon detector: precision loss from benign-prone words | — |
 | `cs_audience_controls.py` | **#5** audience mirroring survives creator fixed-effects logit + within-creator test | scipy, sklearn |
-| `build_annotation_set.py` | **#2** build the 200-video human-validation sample (4 strata + IP weights) | — |
-| `score_annotation.py` | **#2** Cohen's kappa + human-vs-System-A/B once two annotators label it | sklearn |
-
-### Human-validation instrument (`data/annotation/`)
-`build_annotation_set.py` writes `annotation_sample.csv` (blank, for two
-annotators), `annotation_key.csv` (held-out machine verdicts), `annotation_strata.csv`
-(population sizes + inverse-probability weights `w = N_h/n_h`), and
-`ANNOTATION_GUIDE.txt`. After both annotators fill `a1_*`/`a2_*`,
-`score_annotation.py` reports **Question A** (do humans see the gap? — unweighted
-and population-weighted) and **Question B** (which system is closer to humans?),
-stratified, with an error table. Two human annotators are the only manual step.

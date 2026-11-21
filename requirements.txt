@@ -8,4 +8,4 @@ matplotlib>=3.7       # figures (stages 5, 8, 9, 10)
 
 # --- follow-up experiments (src/followups/) ---
 scipy>=1.10           # Wilcoxon test + stats for the audience-controls analysis
-scikit-learn>=1.3     # creator fixed-effects logit + Cohen's kappa (audience, annotation)
+scikit-learn>=1.3     # creator fixed-effects logit (audience controls)

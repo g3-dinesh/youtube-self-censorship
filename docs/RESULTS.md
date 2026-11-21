@@ -306,43 +306,7 @@ Descriptive only.
 
 ---
 
-## PART VIII — Measurement validity & defensibility *(#2, #4, #6)*
-
-### #2 — Human validation of the 4× gap (instrument built, labels pending)
-*(results_deliverable/annotation/)*
-
-A natural challenge is whether the A-vs-B gap is just two models' different
-tendencies. The validation instrument is built and ready, and it answers **two
-distinct questions:**
-
-- **Question A — do humans also see a large policy-vs-folk gap?** (validity of the
-  *gap*). Reported **unweighted** (on the sample) **and re-weighted to the full
-  1,000-video population**, because the sample deliberately over-samples
-  disagreements.
-- **Question B — which system is closer to human judgement?** (validity of A and B
-  as *instruments*). human-policy vs System A, human-folk vs System B, plus the
-  cross-comparisons, each with agreement + Cohen's kappa. *Strong validation =
-  human-policy closest to A and human-folk closest to B.*
-
-**Sampling design (documented, `annotation_strata.csv`):** 200 videos from **4
-mutually-exclusive strata = (A=B agreement) × (ad ground-truth)** — so the unique
-sample size is exactly **200, with no disagreement/ad overlap ambiguity** (the
-"both" case is its own stratum, 70 videos). Per-stratum population size, sample
-size and inverse-probability weight w = N_h/n_h:
-
-| Stratum | Pop N (of 1000) | Sample n | Weight |
-|---|---|---|---|
-| disagree \| ads | 365 | 70 | 5.21 |
-| disagree \| noad | 239 | 50 | 4.78 |
-| agree \| ads | 236 | 50 | 4.72 |
-| agree \| noad | 160 | 30 | 5.33 |
-
-**Interpretation grid:** large human gap + A↔policy / B↔folk = strong
-validation; large gap + only moderate system agreement = gap holds, instruments
-need qualification; small human gap = the 4× result may be model-dependent;
-annotators disagree (low kappa) = protocol needs refinement. `score_annotation.py`
-also reports results **stratified** by the four strata and an error table.
-*(Requires the two human annotators — the only remaining manual step.)*
+## PART VIII — Measurement validity & defensibility *(#4, #6)*
 
 ### #4 — Detector precision vs recall
 *(Results_Exp4b_DetectorPrecisionRecall.txt; cs_detector_compare.csv)*

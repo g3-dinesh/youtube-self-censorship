@@ -86,7 +86,7 @@ ax.text(6.5, 0.08, "common.py  —  shared masking detector, lexicon, Wilson CIs
 band(0.2, -2.15, 12.6, 1.95, "STAGE 5  ·  FOLLOW-UP EXPERIMENTS  —  src/followups/", PURPLE)
 box(0.5, -1.95, 3.7, 1.0, "Talk-vs-Walk\nexp1/exp2 judges · agg_*\nbuild_creator_talkwalk", PURPLE, fs=7)
 box(4.5, -1.95, 3.7, 1.0, "What it looks like / works\nleaky_proximity · podcast_delta\nper_creator_masking", PURPLE, fs=7)
-box(8.5, -1.95, 4.0, 1.0, "Measurement validity\ndetector_compare · audience_controls\nbuild/score_annotation", PURPLE, fs=7)
+box(8.5, -1.95, 4.0, 1.0, "Measurement validity\ndetector_compare\naudience_controls", PURPLE, fs=7)
 arrow(11.0, 4.75, 2.3, -0.95)     # signals/corpus -> followups
 arrow(6.0, 2.65, 10.5, -0.95)     # judges -> followups (validity)
 

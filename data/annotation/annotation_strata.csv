@@ -1,6 +1,0 @@
-stratum,population_N(of 1000),sample_n,weight_w=N/n
-disagree|ads,365,70,5.214
-disagree|noad,239,50,4.78
-agree|ads,236,50,4.72
-agree|noad,160,30,5.333
-TOTAL,1000,200,

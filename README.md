@@ -164,8 +164,8 @@ python src/09_timeline_analysis.py --category true-crime --min-n 5
 | — | `policy_rag.py`, `monetisation_judge.py`, `poc_*.py` | — | RAG + Ollama backend for the judges |
 
 See **[`src/followups/`](src/followups/README.md)** for the extension experiments
-(Talk-vs-Walk, leaky-mask proximity, audience controls, detector precision/recall,
-and the human-validation instrument).
+(Talk-vs-Walk, leaky-mask proximity, audience controls, and detector
+precision/recall).
 
 ---
 
@@ -217,11 +217,10 @@ amrita-review/
 │   ├── policy_corpus/            # System A knowledge (YouTube guidelines + index)
 │   ├── folk_corpus/              # System B knowledge (creator folk rules)
 │   ├── ground_truth_labels.csv   # creator-confirmed monetised/demonetised labels
-│   ├── 05_1000videos_ad_systemA_systemB.csv   # precomputed A/B/ad (Stage 8 + annotation)
+│   ├── 05_1000videos_ad_systemA_systemB.csv   # precomputed A/B/ad (Stage 8)
 │   ├── metadiscourse.jsonl       # follow-ups: advice/rant/interview cohorts
 │   ├── out1.jsonl, out2.jsonl, out_ctalk.jsonl   # follow-ups: qwen3 judgements
 │   ├── creator_talk.jsonl, rants.jsonl, advice.jsonl, podcast_pairs.jsonl
-│   ├── annotation/               # #2 human-validation instrument (sample + key + strata)
 │   └── sample_channels.csv
 └── outputs/                      # generated CSVs + figures (git-ignored)
 ```
