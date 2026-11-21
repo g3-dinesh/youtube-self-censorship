@@ -1,6 +1,6 @@
 # Investigating YouTube Self-Censorship Practices — Consolidated Results
 
-**MSc research project · Gayathri Dinesh · compiled 2026-11-20**
+**MTech research project · Gayathri Dinesh · compiled 2026-11-20**
 
 This document consolidates every experiment in the project with its hypothesis,
 method, corpus, numbers, verdict, and caveats. Results are grouped by the
@@ -353,7 +353,7 @@ Descriptive only.
 
 ---
 
-*Generated for the MSc thesis "Investigating YouTube Self-Censorship Practices."
+*Generated for the MTech thesis "Investigating YouTube Self-Censorship Practices."
 The supporting data for every result above is committed as CSVs in
 [`results/`](../results/) — see [`results/index.csv`](../results/index.csv) for
 the section → CSV → producing-script map.*
